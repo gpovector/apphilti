@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grupo Vector - Hilti</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Alpine.js -->
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3" defer></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Roboto', sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- ENCABEZADO -->
+  <header class="bg-red-700 text-white p-4 text-center">
+    <h1 class="text-2xl font-bold">GRUPO VECTOR</h1>
+    <p><a href="https://www.hilti-grupovector.com/" target="_blank" class="underline text-sm">Ir al sitio oficial</a></p>
+  </header>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="bg-gray-800 text-white p-3 flex justify-center space-x-4">
+    <a href="#inicio" class="hover:text-red-400">Inicio</a>
+    <a href="#quienes" class="hover:text-red-400">Quiénes Somos</a>
+    <a href="#productos" class="hover:text-red-400">Productos</a>
+    <a href="#servicios" class="hover:text-red-400">Servicios</a>
+    <a href="#faq" class="hover:text-red-400">Preguntas</a>
+    <a href="#contacto" class="hover:text-red-400">Contacto</a>
+  </nav>
+
+  <!-- INICIO -->
+  <section id="inicio" class="p-6 max-w-4xl mx-auto">
+    <h2 class="text-xl font-bold mb-4">Bienvenido a la plataforma Hilti Grupo Vector</h2>
+    <p>Gestione productos, obtenga soporte y contacte a nuestro equipo desde cualquier dispositivo.</p>
+  </section>
+
+  <!-- QUIÉNES SOMOS -->
+  <section id="quienes" class="p-6 max-w-4xl mx-auto">
+    <h2 class="text-xl font-bold mb-4">👷 Quiénes Somos</h2>
+    <p>Grupo Vector es distribuidor autorizado Hilti con amplia experiencia en soluciones de ingeniería, herramientas y soporte técnico en obra.</p>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos" class="p-6 max-w-4xl mx-auto">
+    <h2 class="text-xl font-bold mb-4">🔍 Buscar Productos</h2>
+    <div x-data="{ search: '', productos: ['Taladro', 'Martillo Demoledor', 'Cortadora', 'Disco Diamante'] }">
+      <input x-model="search" type="text" placeholder="Buscar..." class="w-full p-2 border rounded mb-4" />
+      <ul>
+        <template x-for="item in productos.filter(p => p.toLowerCase().includes(search.toLowerCase()))" :key="item">
+          <li class="p-2 bg-white border-b">🔧 <span x-text="item"></span></li>
+        </template>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="p-6 max-w-4xl mx-auto">
+    <h2 class="text-xl font-bold mb-4">🛠️ Servicios</h2>
+    <ul class="list-disc pl-5">
+      <li>Asesoría técnica personalizada.</li>
+      <li>Envíos rápidos y seguros.</li>
+      <li>Demostraciones en obra.</li>
+    </ul>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES -->
+  <section id="faq" class="p-6 max-w-4xl mx-auto">
+    <h2 class="text-xl font-bold mb-4">📌 Preguntas Frecuentes</h2>
+    <details class="bg-white shadow rounded p-4 mb-2">
+      <summary class="font-semibold cursor-pointer">¿Cómo buscar un producto?</summary>
+      <p class="mt-2 text-sm text-gray-700">Usa el buscador en la sección de productos o visita nuestro catálogo oficial.</p>
+    </details>
+    <details class="bg-white shadow rounded p-4 mb-2">
+      <summary class="font-semibold cursor-pointer">¿Dónde contacto a un asesor?</summary>
+      <p class="mt-2 text-sm text-gray-700">Desde el botón flotante de WhatsApp.</p>
+    </details>
+    <details class="bg-white shadow rounded p-4 mb-2">
+      <summary class="font-semibold cursor-pointer">¿Qué beneficios ofrece Grupo Vector?</summary>
+      <p class="mt-2 text-sm text-gray-700">Ofrecemos experiencia, asesoramiento y disponibilidad inmediata de productos Hilti.</p>
+    </details>
+  </section>
+
+  <!-- FORMULARIO DE CONTACTO -->
+  <section id="contacto" class="p-6 max-w-4xl mx-auto">
+    <h2 class="text-xl font-bold mb-4">📬 Contáctanos</h2>
+    <form id="formContacto" class="space-y-4">
+      <input type="text" id="nombre" placeholder="Nombre" class="w-full p-2 border rounded" required />
+      <input type="email" id="correo" placeholder="Correo Electrónico" class="w-full p-2 border rounded" required />
+      <textarea id="mensaje" placeholder="Escribe tu mensaje..." class="w-full p-2 border rounded" required></textarea>
+      <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+        Enviar Mensaje
+      </button>
+    </form>
+  </section>
+
+  <!-- BOTÓN WHATSAPP -->
+  <a href="https://wa.me/5215518593563" target="_blank"
+     class="fixed bottom-5 right-5 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg flex items-center space-x-2">
+    <i class="fab fa-whatsapp text-xl"></i>
+    <span class="hidden sm:inline">WhatsApp</span>
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="text-center text-sm text-gray-500 mt-10 mb-4">
+    © 2025 Grupo Vector | Sitio en desarrollo
+  </footer>
+
+  <!-- VALIDACIÓN Y MENSAJES -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('formContacto');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nombre = document.getElementById('nombre').value.trim();
+        const correo = document.getElementById('correo').value.trim();
+        const mensaje = document.getElementById('mensaje').value.trim();
+
+        if (!nombre || !correo || !mensaje) {
+          Swal.fire({ icon: 'error', title: 'Campos vacíos', text: 'Por favor completa todos los campos.' });
+          return;
+        }
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Mensaje enviado',
+          text: 'Gracias por contactarnos, te responderemos pronto.',
+          timer: 3000,
+          showConfirmButton: false
+        });
+
+        form.reset();
+      });
+    });
+  </script>
+
+</body>
+</html>
